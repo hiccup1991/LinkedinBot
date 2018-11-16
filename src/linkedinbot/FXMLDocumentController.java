@@ -153,7 +153,14 @@ public class FXMLDocumentController implements Initializable {
 
 	public static void visitLinkedin(){
 		ChromeOptions chromeOptions = new ChromeOptions();
-		File chromeDriver = new File("chromedriver.exe");
+                String osname = System.getProperty("os.name");
+                File chromeDriver = null;
+                if(osname.equals("Linux")){
+                    chromeDriver = new File("./chromedriver");
+                }
+                else if(osname.equals("Windows")){
+                    chromeDriver = new File("chromedriver.exe");
+                }
                 System.out.println(chromeDriver.getAbsolutePath());
 		System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
 //		chromeOptions.addArguments("--headless");
