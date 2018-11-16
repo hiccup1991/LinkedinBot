@@ -154,11 +154,12 @@ public class FXMLDocumentController implements Initializable {
 	public static void visitLinkedin(){
 		ChromeOptions chromeOptions = new ChromeOptions();
                 String osname = System.getProperty("os.name");
+                System.out.println(osname);
                 File chromeDriver = null;
-                if(osname.equals("Linux")){
+                if(osname.contains("Linux")){
                     chromeDriver = new File("./chromedriver");
                 }
-                else if(osname.equals("Windows")){
+                else if(osname.contains("Windows")){
                     chromeDriver = new File("chromedriver.exe");
                 }
                 System.out.println(chromeDriver.getAbsolutePath());
